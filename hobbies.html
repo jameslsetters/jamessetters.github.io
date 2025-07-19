@@ -99,33 +99,42 @@
   <main>
     <div class="section-title">Hobbies & Extreme Sports</div>
     <div class="content">
-      Click the arrows below to see some of my hobbies and extreme sports adventures.
+      Click the arrows below to scroll through some of my hobbies and adventures.
     </div>
     <div class="carousel-container">
       <div class="carousel">
         <button class="carousel-arrow left" onclick="prevImage()" aria-label="Previous">&#8592;</button>
-        <img id="carousel-image" src="images/hobbies/Rock_Climbing.jpg" alt="Rock Climbing">
+        <img id="carousel-image" src="images/hobbies/Apple_Picking.jpg" alt="Apple Picking">
         <button class="carousel-arrow right" onclick="nextImage()" aria-label="Next">&#8594;</button>
       </div>
-      <div class="carousel-description" id="carousel-desc">Rock Climbing – Scaling challenging outdoor rock faces.</div>
+      <div class="carousel-description" id="carousel-desc">
+        Apple Picking – Enjoying a day in the orchard.
+      </div>
     </div>
     <script>
       const images = [
-        {
-          src: "images/hobbies/Rock_Climbing.jpg",
-          alt: "Rock Climbing",
-          desc: "Rock Climbing – Scaling challenging outdoor rock faces."
-        },
-        {
-          src: "images/hobbies/Jumping_T_Fire.jpg",
-          alt: "Jumping Through Fire",
-          desc: "Jumping Through Fire – Extreme stunt performed safely!"
-        },
-        {
-          src: "images/hobbies/Jumping_Bike.PNG",
-          alt: "Jumping Bike",
-          desc: "Jumping Bike – Catching air on the mountain bike."
-        }
+        { src: "images/hobbies/Apple_Picking.jpg", alt: "Apple Picking", desc: "Apple Picking – Enjoying a day in the orchard." },
+        { src: "images/hobbies/Bear_on_back.jpg", alt: "Bear on Back", desc: "Bear on Back – Goofing off with a bear backpack." },
+        { src: "images/hobbies/Dead_bear.PNG", alt: "Dead Bear", desc: "Dead Bear – Encounter with a bear (stuffed or real?)" },
+        { src: "images/hobbies/Dirt_Biking.jpg", alt: "Dirt Biking", desc: "Dirt Biking – Ripping it up on the trails." },
+        { src: "images/hobbies/Fighting_in_Park.jpg", alt: "Fighting in Park", desc: "Fighting in Park – Martial arts practice in the great outdoors." },
+        { src: "images/hobbies/Ice_Waterfall_Hike.jpg", alt: "Ice Waterfall Hike", desc: "Ice Waterfall Hike – Hiking to frozen waterfalls." },
+        { src: "images/hobbies/Jumping_Bike.PNG", alt: "Jumping Bike", desc: "Jumping Bike – Big air on the bike!" },
+        { src: "images/hobbies/Jumping_T_Fire.jpg", alt: "Jumping Through Fire", desc: "Jumping Through Fire – Clearing the flames." },
+        { src: "images/hobbies/Longboard_Slide_1.jpg", alt: "Longboard Slide 1", desc: "Longboard Slide 1 – Sliding into action." },
+        { src: "images/hobbies/Longboard_Slide_2.jpg", alt: "Longboard Slide 2", desc: "Longboard Slide 2 – Longboarding adventure continues." },
+        { src: "images/hobbies/Longboard_Slide_3.jpg", alt: "Longboard Slide 3", desc: "Longboard Slide 3 – Three times the fun." },
+        { src: "images/hobbies/Mini_Bike_Jump.jpg", alt: "Mini Bike Jump", desc: "Mini Bike Jump – Taking flight on a minibike." },
+        { src: "images/hobbies/Mt.Borah_Peak_Selfie.jpg", alt: "Mt. Borah Peak Selfie", desc: "Mt. Borah Peak – Selfie at the summit!" },
+        { src: "images/hobbies/Mt.Borah_Side.jpg", alt: "Mt. Borah Side", desc: "Mt. Borah – Side view of the climb." },
+        { src: "images/hobbies/Piture_Frame.jpg", alt: "Picture Frame", desc: "Picture Frame – Framing memories." },
+        { src: "images/hobbies/Pool.jpg", alt: "Pool", desc: "Pool – Relaxing or playing in the pool." },
+        { src: "images/hobbies/Rock_Climbing.jpg", alt: "Rock Climbing", desc: "Rock Climbing – Scaling rock faces outdoors." },
+        { src: "images/hobbies/Snowboard_Friends.jpg", alt: "Snowboard Friends", desc: "Snowboard Friends – Snowboarding with friends." },
+        { src: "images/hobbies/Stupio_Jump.jpg", alt: "Stupio Jump", desc: "Stupio Jump – A crazy jump (studio or stupid?)." },
+        { src: "images/hobbies/Top_Mountain_snowboard.jpg", alt: "Top Mountain Snowboard", desc: "Top of the Mountain – Snowboarding high up." },
+        { src: "images/hobbies/Walking_Brush.jpg", alt: "Walking Brush", desc: "Walking Brush – Trekking through the brush." },
+        { src: "images/hobbies/Wooren_bowl.jpg", alt: "Wooden Bowl", desc: "Wooden Bowl – A handcrafted wooden bowl project." }
       ];
       let current = 0;
       function updateCarousel() {
@@ -147,3 +156,4 @@
   </main>
 </body>
 </html>
+
