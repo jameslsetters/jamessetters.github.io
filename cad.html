@@ -4,92 +4,24 @@
   <meta charset="UTF-8">
   <title>CAD Work | James Setters</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      background: #181818;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #222;
-      padding: 2rem 0 1rem 0;
-      text-align: center;
-      box-shadow: 0 2px 10px #0004;
-      border-bottom: 1.5px solid #25262c;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.4rem;
-      letter-spacing: 2px;
-      color: #fff;
-      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
-    }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      color: #888;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: color 0.2s;
-      padding: 0.3em 1.1em;
-      border-radius: 7px;
-    }
-    nav a:hover, nav a:focus {
-      background: #2c2f38;
-      color: #fff;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: linear-gradient(120deg, #1a1c22 60%, #23242b 100%);
-      border-radius: 22px;
-      box-shadow: 0 6px 44px #0007, 0 1.5px 8px #262a3135;
-      padding: 2.7rem 2rem 2.2rem 2rem;
-      min-height: 65vh;
-    }
-    .section-title {
-      color: #53e1ff;
-      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
-      letter-spacing: 0.08em;
-      font-size: 1.19rem;
-      text-transform: uppercase;
-      margin: 2.1rem 0 1.1rem 0;
-    }
-    .content {
-      color: #ccc;
-      font-size: 1.08rem;
-      line-height: 1.7;
-      margin-bottom: 1.7rem;
-    }
-    .project-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 1.3rem 0;
-      color: #bbb;
-      font-size: 1.05rem;
-    }
-    .project-list li {
-      background: #23272f;
-      border-radius: 9px;
-      padding: 0.7rem 1rem;
-      border: 1px solid #343434;
-      margin-bottom: 1rem;
-    }
-    @media (max-width: 700px) {
-      main { padding: 1rem; }
-    }
-    @media (max-width: 600px) {
-      main { padding: 0.4rem; }
-      h1 { font-size: 1.4rem; }
-      .section-title { font-size: 1.01rem; padding-left: 0.45rem; }
-      .content { font-size: 0.99rem; }
-    }
-  </style>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    body { background: #181818; color: #e0e0e0; font-family: 'Segoe UI', 'Arial', sans-serif; margin: 0; padding: 0; }
+    header { background: #222; padding: 2rem 0 1rem 0; text-align: center; box-shadow: 0 2px 10px #0004; border-bottom: 1.5px solid #25262c; }
+    h1 { margin: 0; font-size: 2.4rem; letter-spacing: 2px; color: #fff; font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif; }
+    nav { margin-top: 1rem; }
+    nav a { color: #888; margin: 0 1rem; text-decoration: none; font-size: 1.1rem; transition: color 0.2s; padding: 0.3em 1.1em; border-radius: 7px; }
+    nav a:hover, nav a:focus { background: #2c2f38; color: #fff; }
+    main { max-width: 900px; margin: 2rem auto; background: linear-gradient(120deg, #1a1c22 60%, #23242b 100%); border-radius: 22px; box-shadow: 0 6px 44px #0007, 0 1.5px 8px #262a3135; padding: 2.7rem 2rem 2.2rem 2rem; min-height: 65vh; }
+    .section-title { color: #53e1ff; font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif; letter-spacing: 0.08em; font-size: 1.19rem; text-transform: uppercase; margin: 2.1rem 0 1.1rem 0; }
+    .content { color: #ccc; font-size: 1.08rem; line-height: 1.7; margin-bottom: 2.2rem; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 1.3rem; justify-content: center; margin-bottom: 2.5rem; }
+    .gallery figure { background: #20232a; border-radius: 12px; box-shadow: 0 2px 18px #0007; padding: 0.9rem; margin: 0; max-width: 330px; flex: 1 0 220px; }
+    .gallery img { max-width: 100%; border-radius: 8px; display: block; margin-bottom: 0.7rem; box-shadow: 0 2px 8px #0004; }
+    .gallery figcaption { color: #8ecaff; font-size: 1rem; text-align: center; }
+    @media (max-width: 700px) { main { padding: 1rem; } .gallery { gap: 0.7rem; } }
+    @media (max-width: 500px) { .gallery figure { padding: 0.5rem; } }
+  </style>
 </head>
 <body>
   <header>
@@ -106,22 +38,18 @@
   <main>
     <div class="section-title">CAD Work</div>
     <div class="content">
-      Showcase your CAD designs, 3D modeling projects, and related work here.
+      Below are some of my CAD designs and 3D modeling projects:
     </div>
-    <ul class="project-list">
-      <li>
-        <b>Large-Scale 3D Printer Design</b><br>
-        Designed and built a custom 3D printer for wood composite construction. Used SolidWorks and Fusion 360.<br>
-        <i>[Add more detail or images here]</i>
-      </li>
-      <li>
-        <b>Construction Site 3D Modeling</b><br>
-        Modeled dirt work and site plans using Agtek.<br>
-        <i>[Add more detail or images here]</i>
-      </li>
-      <!-- Add more CAD projects as needed -->
-    </ul>
+    <div class="gallery">
+      <figure>
+        <img src="images/Fishing_lures.jpg" alt="Fishing Lure CAD Model">
+        <figcaption>Fishing Lure CAD Model</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Spinner_Template.jpg" alt="Spinner Template Design">
+        <figcaption>Spinner Template Design</figcaption>
+      </figure>
+    </div>
   </main>
 </body>
 </html>
-
