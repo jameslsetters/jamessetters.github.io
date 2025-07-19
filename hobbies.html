@@ -15,12 +15,73 @@
     main { max-width: 900px; margin: 2rem auto; background: linear-gradient(120deg, #1a1c22 60%, #23242b 100%); border-radius: 22px; box-shadow: 0 6px 44px #0007, 0 1.5px 8px #262a3135; padding: 2.7rem 2rem 2.2rem 2rem; min-height: 65vh; }
     .section-title { color: #53e1ff; font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif; letter-spacing: 0.08em; font-size: 1.19rem; text-transform: uppercase; margin: 2.1rem 0 1.1rem 0; }
     .content { color: #ccc; font-size: 1.08rem; line-height: 1.7; margin-bottom: 2.2rem; }
-    .gallery { display: flex; flex-wrap: wrap; gap: 1.3rem; justify-content: center; margin-bottom: 2.5rem; }
-    .gallery figure { background: #20232a; border-radius: 12px; box-shadow: 0 2px 18px #0007; padding: 0.9rem; margin: 0; max-width: 330px; flex: 1 0 220px; }
-    .gallery img { max-width: 100%; border-radius: 8px; display: block; margin-bottom: 0.7rem; box-shadow: 0 2px 8px #0004; }
-    .gallery figcaption { color: #8ecaff; font-size: 1rem; text-align: center; }
-    @media (max-width: 700px) { main { padding: 1rem; } .gallery { gap: 0.7rem; } }
-    @media (max-width: 500px) { .gallery figure { padding: 0.5rem; } }
+    .carousel-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 2.2rem 0;
+    }
+    .carousel {
+      position: relative;
+      width: 330px;
+      height: 270px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #222a33;
+      border-radius: 20px;
+      box-shadow: 0 3px 18px #000a;
+      overflow: hidden;
+    }
+    .carousel img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #0004;
+      display: block;
+      background: #181818;
+    }
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      background: #232a37cc;
+      color: #53e1ff;
+      border: none;
+      border-radius: 50%;
+      font-size: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.18s, color 0.18s, transform 0.11s;
+      user-select: none;
+      outline: none;
+    }
+    .carousel-arrow:hover { background: #53e1ff; color: #23242b; transform: scale(1.13); }
+    .carousel-arrow.left { left: 14px; }
+    .carousel-arrow.right { right: 14px; }
+    .carousel-description {
+      margin-top: 1rem;
+      color: #8ecaff;
+      background: #222a33;
+      border-radius: 11px;
+      padding: 0.7rem 1.2rem;
+      font-size: 1.09rem;
+      min-height: 2.2em;
+      text-align: center;
+      box-shadow: 0 1.5px 9px #0005;
+    }
+    @media (max-width: 500px) {
+      .carousel { width: 96vw; height: 44vw; min-width: 180px; min-height: 130px; }
+      .carousel img { height: 110px; }
+      .carousel-arrow { width: 36px; height: 36px; font-size: 1.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -38,22 +99,51 @@
   <main>
     <div class="section-title">Hobbies & Extreme Sports</div>
     <div class="content">
-      Here are a few of my hobbies and extreme sports adventures:
+      Click the arrows below to see some of my hobbies and extreme sports adventures.
     </div>
-    <div class="gallery">
-      <figure>
-        <img src="images/Rock_Climbing.jpg" alt="Rock Climbing">
-        <figcaption>Rock Climbing</figcaption>
-      </figure>
-      <figure>
-        <img src="images/Jumping_T_Fire.jpg" alt="Jumping Through Fire">
-        <figcaption>Jumping Through Fire</figcaption>
-      </figure>
-      <figure>
-        <img src="images/Jumping_Bike.PNG" alt="Jumping Bike">
-        <figcaption>Jumping Bike</figcaption>
-      </figure>
+    <div class="carousel-container">
+      <div class="carousel">
+        <button class="carousel-arrow left" onclick="prevImage()" aria-label="Previous">&#8592;</button>
+        <img id="carousel-image" src="images/hobbies/Rock_Climbing.jpg" alt="Rock Climbing">
+        <button class="carousel-arrow right" onclick="nextImage()" aria-label="Next">&#8594;</button>
+      </div>
+      <div class="carousel-description" id="carousel-desc">Rock Climbing – Scaling challenging outdoor rock faces.</div>
     </div>
+    <script>
+      const images = [
+        {
+          src: "images/hobbies/Rock_Climbing.jpg",
+          alt: "Rock Climbing",
+          desc: "Rock Climbing – Scaling challenging outdoor rock faces."
+        },
+        {
+          src: "images/hobbies/Jumping_T_Fire.jpg",
+          alt: "Jumping Through Fire",
+          desc: "Jumping Through Fire – Extreme stunt performed safely!"
+        },
+        {
+          src: "images/hobbies/Jumping_Bike.PNG",
+          alt: "Jumping Bike",
+          desc: "Jumping Bike – Catching air on the mountain bike."
+        }
+      ];
+      let current = 0;
+      function updateCarousel() {
+        const img = document.getElementById("carousel-image");
+        const desc = document.getElementById("carousel-desc");
+        img.src = images[current].src;
+        img.alt = images[current].alt;
+        desc.textContent = images[current].desc;
+      }
+      function prevImage() {
+        current = (current - 1 + images.length) % images.length;
+        updateCarousel();
+      }
+      function nextImage() {
+        current = (current + 1) % images.length;
+        updateCarousel();
+      }
+    </script>
   </main>
 </body>
 </html>
