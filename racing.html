@@ -99,28 +99,34 @@
   <main>
     <div class="section-title">Racing</div>
     <div class="content">
-      Click the arrows below to see a few of my racing highlights.
+      Click the arrows below to scroll through some of my racing highlights.
     </div>
     <div class="carousel-container">
       <div class="carousel">
         <button class="carousel-arrow left" onclick="prevImage()" aria-label="Previous">&#8592;</button>
-        <img id="carousel-image" src="images/racing/Race_win_1.jpg" alt="Race Win 1">
+        <img id="carousel-image" src="images/racing/360_win.jpg" alt="360 Win">
         <button class="carousel-arrow right" onclick="nextImage()" aria-label="Next">&#8594;</button>
       </div>
-      <div class="carousel-description" id="carousel-desc">Race Win #1 – A major win on the circuit!</div>
+      <div class="carousel-description" id="carousel-desc">360 Win – Capturing the moment of a major sprint car win.</div>
     </div>
     <script>
       const images = [
-        {
-          src: "images/racing/Race_win_1.jpg",
-          alt: "Race Win 1",
-          desc: "Race Win #1 – A major win on the circuit!"
-        },
-        {
-          src: "images/racing/Race_win_2.PNG",
-          alt: "Race Win 2",
-          desc: "Race Win #2 – Another podium finish in my racing career."
-        }
+        { src: "images/racing/360_win.jpg", alt: "360 Win", desc: "360 Win – Capturing the moment of a major sprint car win." },
+        { src: "images/racing/Boobs_Signed.jpg", alt: "Autograph Moment", desc: "A fun autograph moment with fans." },
+        { src: "images/racing/Broken_Back.PNG", alt: "Broken Back", desc: "A tough crash and comeback story." },
+        { src: "images/racing/Championchip.PNG", alt: "Championship Win", desc: "Championship trophy night!" },
+        { src: "images/racing/Extreme_Cup_Win_1.JPG", alt: "Extreme Cup Win", desc: "Extreme Cup Victory in style." },
+        { src: "images/racing/Guitar_Win.PNG", alt: "Guitar Win", desc: "A unique win—bringing home a guitar trophy!" },
+        { src: "images/racing/Ledgened.PNG", alt: "Legend", desc: "A legendary moment in my career." },
+        { src: "images/racing/Race_win_1.jpg", alt: "Race Win 1", desc: "Race Win #1 – One of my earliest podiums." },
+        { src: "images/racing/Race_win_2.PNG", alt: "Race Win 2", desc: "Race Win #2 – Unforgettable victory lap." },
+        { src: "images/racing/Sporty_Win_1.JPG", alt: "Sporty Win 1", desc: "Sporty Car Win #1 – The start of something great." },
+        { src: "images/racing/Sporty_win_2.jpeg", alt: "Sporty Win 2", desc: "Sporty Car Win #2 – More hardware for the shelf." },
+        { src: "images/racing/Sprint_Car_Sideways_1.jpg", alt: "Sprint Car Sideways", desc: "Pushing the limits in the sprint car." },
+        { src: "images/racing/Sprint_Flip.PNG", alt: "Sprint Flip", desc: "A wild flip—thankfully, walked away safe!" },
+        { src: "images/racing/Sprint_air.PNG", alt: "Sprint Air", desc: "Catching big air during a race." },
+        { src: "images/racing/Sprint_fair.PNG", alt: "Sprint Fair", desc: "State fair race night." },
+        { src: "images/racing/Two_ladies.JPG", alt: "Victory Lane", desc: "Victory lane celebration." }
       ];
       let current = 0;
       function updateCarousel() {
@@ -142,5 +148,4 @@
   </main>
 </body>
 </html>
-
 
