@@ -2,180 +2,231 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CAD Work | James Setters</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+  <title>CAD Work - Frontier Labs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { background: #181818; color: #e0e0e0; font-family: 'Segoe UI', 'Arial', sans-serif; margin: 0; padding: 0; }
-    header { background: #222; padding: 2rem 0 1rem 0; text-align: center; box-shadow: 0 2px 10px #0004; border-bottom: 1.5px solid #25262c; }
-    h1 { margin: 0; font-size: 2.4rem; letter-spacing: 2px; color: #fff; font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif; }
-    nav { margin-top: 1rem; }
-    nav a { color: #888; margin: 0 1rem; text-decoration: none; font-size: 1.1rem; transition: color 0.2s; padding: 0.3em 1.1em; border-radius: 7px; }
-    nav a:hover, nav a:focus { background: #2c2f38; color: #fff; }
-    main { max-width: 900px; margin: 2rem auto; background: linear-gradient(120deg, #1a1c22 60%, #23242b 100%); border-radius: 22px; box-shadow: 0 6px 44px #0007, 0 1.5px 8px #262a3135; padding: 2.7rem 2rem 2.2rem 2rem; min-height: 65vh; }
-    .section-title { color: #53e1ff; font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif; letter-spacing: 0.08em; font-size: 1.19rem; text-transform: uppercase; margin: 2.1rem 0 1.1rem 0; }
-    .content { color: #ccc; font-size: 1.08rem; line-height: 1.7; margin-bottom: 2.2rem; }
-    .carousel-container {
+    :root {
+      --orange: #ff6a00;
+      --yellow: #ffb347;
+      --orange-grad: linear-gradient(90deg, #ffb347 0%, #ff6a00 80%, #ff9033 100%);
+      --black: #181818;
+      --grey: #ececec;
+      --dark-grey: #232323;
+      --nav-glass: rgba(24,28,38,0.91);
+      --panel-glass: rgba(38,40,44,0.89);
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a1f 0%, #282a33 55%, #1d1e22 100%);
+      color: var(--grey);
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    header {
+      background: var(--nav-glass);
+      backdrop-filter: blur(12px);
+      padding: 1.3rem 0 1.1rem 0;
+      box-shadow: 0 6px 32px 0 #161920bb, 0 2px 14px 0 #ff6a0018;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-bottom: 1.5px solid #22292f;
+    }
+    .logo {
+      background: var(--orange-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      font-size: 2.7rem;
+      font-weight: 900;
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+      font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
+      margin-bottom: 0.22rem;
+      filter: drop-shadow(0 0 6px #ffb34745);
+    }
+    nav {
+      margin-top: 0.3rem;
+      display: flex;
+      gap: 1.12rem;
+    }
+    nav a {
+      color: #e3e3e3;
+      font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
+      text-decoration: none;
+      font-size: 1.07rem;
+      letter-spacing: 1.2px;
+      padding: 0.36rem 1.15rem;
+      border-radius: 20px;
+      background: none;
+      font-weight: 600;
+      transition: color 0.2s, background 0.2s, box-shadow 0.18s;
+    }
+    nav a:hover:not(.resume-btn) {
+      color: var(--orange);
+      background: #232323;
+      box-shadow: 0 0 10px #ff6a0044;
+    }
+    .resume-btn {
+      color: #232323;
+      font-weight: 900;
+      padding: 0.36rem 1.6rem;
+      border-radius: 28px;
+      background: var(--orange-grad);
+      box-shadow: 0 0 14px 3px var(--orange), 0 0 22px 1px #ffb34788;
+      text-shadow: 0 0 2px #ffb34799;
+      letter-spacing: 1.5px;
+      font-size: 1.12rem;
+      margin-left: 0.24rem;
+      transition: box-shadow 0.22s, background 0.21s, color 0.18s;
+      outline: 1.5px solid #ffb34744;
+      border: none;
+    }
+    .resume-btn:hover, .resume-btn:focus {
+      color: #fff;
+      background: linear-gradient(90deg, #ff6a00 0%, #ffb347 100%);
+      box-shadow: 0 0 32px 9px #ff903355;
+      outline: 2px solid #ffb34799;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2.5rem auto 2rem auto;
+      background: var(--panel-glass);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px 0 #181818cc, 0 2px 16px 0 #ff6a0035;
+      padding: 2.5rem 1.5rem;
+      border: 1.2px solid #232323;
+      backdrop-filter: blur(2px);
+    }
+    h1 {
+      color: var(--orange);
+      letter-spacing: 1.2px;
+      text-shadow: 0 0 8px #ffb34744;
+      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+      margin-top: 0;
+      font-size: 2.3rem;
+      margin-bottom: 0.7rem;
+    }
+    .overview {
+      font-size: 1.13rem;
+      color: var(--grey);
+      margin-bottom: 2.2rem;
+      line-height: 1.5;
+    }
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.2rem;
+      justify-content: center;
+      margin-top: 1.8rem;
+    }
+    .project-box {
+      flex: 1 1 330px;
+      max-width: 350px;
+      min-width: 230px;
+      background: linear-gradient(120deg, #232323 65%, #ff6a001a 100%);
+      border-left: 4px solid var(--orange);
+      border-radius: 14px;
+      padding: 1.3rem 1.1rem 1.1rem 1.3rem;
+      box-shadow: 0 2px 16px rgba(255,106,0,0.11), 0 1.5px 6px #ffb34722;
+      transition: box-shadow 0.2s, border-color 0.2s, background 0.18s;
+      margin-bottom: 1rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 2.2rem 0;
-    }
-    .carousel {
+      align-items: flex-start;
+      min-height: 220px;
       position: relative;
-      width: 330px;
-      height: 270px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #222a33;
-      border-radius: 20px;
-      box-shadow: 0 3px 18px #000a;
-      overflow: hidden;
     }
-    .carousel img {
-      width: 100%;
-      height: 220px;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px #0004;
-      display: block;
-      background: #181818;
+    .project-box:hover {
+      box-shadow: 0 4px 24px 0 rgba(255,106,0,0.23);
+      border-left: 4px solid #ffb347;
+      background: linear-gradient(120deg, #232323 40%, #ffb34722 100%);
     }
-    .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 46px;
-      height: 46px;
-      background: #232a37cc;
-      color: #53e1ff;
-      border: none;
-      border-radius: 50%;
-      font-size: 2.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 2;
-      transition: background 0.18s, color 0.18s, transform 0.11s;
-      user-select: none;
-      outline: none;
+    .project-title {
+      color: var(--orange);
+      font-size: 1.12rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
+      letter-spacing: 1px;
+      text-shadow: 0 0 5px #ffb34733;
     }
-    .carousel-arrow:hover { background: #53e1ff; color: #23242b; transform: scale(1.13); }
-    .carousel-arrow.left { left: 14px; }
-    .carousel-arrow.right { right: 14px; }
-    .carousel-description {
-      margin-top: 1rem;
-      color: #8ecaff;
-      background: #222a33;
-      border-radius: 11px;
-      padding: 0.7rem 1.2rem;
-      font-size: 1.09rem;
-      min-height: 2.2em;
-      text-align: center;
-      box-shadow: 0 1.5px 9px #0005;
+    .project-desc {
+      font-size: 1rem;
+      color: #ddd;
+      flex-grow: 1;
     }
-    @media (max-width: 500px) {
-      .carousel { width: 96vw; height: 44vw; min-width: 180px; min-height: 130px; }
-      .carousel img { height: 110px; }
-      .carousel-arrow { width: 36px; height: 36px; font-size: 1.5rem; }
+    @media (max-width: 1000px) {
+      .projects-grid { gap: 1.2rem; }
+      .container { padding: 1.2rem 0.6rem; }
+      .project-box { padding: 1.1rem 0.8rem 0.9rem 1rem; }
+      h1 { font-size: 1.5rem; }
+    }
+    @media (max-width: 700px) {
+      nav { flex-direction: column; gap: 0.5rem; }
+      .logo { font-size: 1.45rem; }
+      .projects-grid { flex-direction: column; gap: 1.2rem; }
+      .project-box { max-width: 100%; min-width: 0; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>James Setters</h1>
+    <div class="logo">Frontier Labs</div>
     <nav>
       <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
       <a href="cad.html">CAD Work</a>
-      <a href="coding.html">Coding</a>
-      <a href="hobbies.html">Hobbies</a>
-      <a href="racing.html">Racing</a>
-      <a href="resume.html">Resume</a>
+      <a href="code.html">Code</a>
+      <a href="shop.html">Shop</a>
+      <a href="resume.html" class="resume-btn">Resume</a>
     </nav>
   </header>
-  <main>
-    <div class="section-title">CAD Work</div>
-    <div class="content">
-      Click the arrows below to view my CAD projects and see a brief description.
+
+  <div class="container">
+    <h1>CAD Work</h1>
+    <div class="overview">
+      This section highlights a range of CAD projects demonstrating creative mechanical design, practical engineering solutions, and technical proficiency in SolidWorks and Fusion 360. These projects span academic research, client products, and real-world prototyping.
     </div>
-    <div class="carousel-container">
-      <div class="carousel">
-        <button class="carousel-arrow left" onclick="prevImage()" aria-label="Previous">&#8592;</button>
-        <img id="carousel-image" src="images/cad/Concrete_Pump.jpg" alt="Concrete Pump CAD">
-        <button class="carousel-arrow right" onclick="nextImage()" aria-label="Next">&#8594;</button>
+    <div class="projects-grid">
+      <div class="project-box">
+        <div class="project-title">Large-Scale 3D Printed Wooden House Prototype</div>
+        <div class="project-desc">
+          Designed and built a large-format 3D printer to explore the feasibility of printing full-scale wooden structures. Modeled all components in SolidWorks and validated structural elements through physical testing and iteration.
+        </div>
       </div>
-      <div class="carousel-description" id="carousel-desc">
-        Concrete Pump – CAD model for a construction concrete pumping system.
+      <div class="project-box">
+        <div class="project-title">Continuous Casting Machine R&D</div>
+        <div class="project-desc">
+          Developed and optimized a moldless casting system using mechanical design and 3D modeling. Applied SolidWorks to refine moving components and integrated control systems to automate the process.
+        </div>
+      </div>
+      <div class="project-box">
+        <div class="project-title">HP Sustainable Packaging Cover</div>
+        <div class="project-desc">
+          Engineered a sustainable packaging solution for HP in collaboration with a research team. Designed models in Fusion 360 and focused on material reduction, strength-to-weight performance, and production feasibility.
+        </div>
+      </div>
+      <div class="project-box">
+        <div class="project-title">Spinner Template Painting Jig</div>
+        <div class="project-desc">
+          Created a precise jig to streamline the painting process of spinner blades. Modeled and tested multiple iterations to ensure compatibility with various spinner sizes and consistent output.
+        </div>
+      </div>
+      <div class="project-box">
+        <div class="project-title">Fishing Lure Prototypes</div>
+        <div class="project-desc">
+          Designed and modified several fishing lure prototypes using SolidWorks and Fusion 360. Improvements focused on action tuning, manufacturability, and tooling compatibility.
+        </div>
       </div>
     </div>
-    <script>
-      const images = [
-        {
-          src: "images/cad/Concrete_Pump.jpg",
-          alt: "Concrete Pump CAD",
-          desc: "Concrete Pump – CAD model for a construction concrete pumping system."
-        },
-        {
-          src: "images/cad/Continuous_Casting_Machine.jpg",
-          alt: "Continuous Casting Machine",
-          desc: "Continuous Casting Machine – Designed for experimental 3D-printed rod casting."
-        },
-        {
-          src: "images/cad/Fishing_Lure.jpg",
-          alt: "Fishing Lure CAD",
-          desc: "Fishing Lure – Hand-crafted CAD for an experimental fishing lure."
-        },
-        {
-          src: "images/cad/Fishing_lures.jpg",
-          alt: "Fishing Lures",
-          desc: "Fishing Lures – 3D-modeled prototypes for lure testing."
-        },
-        {
-          src: "images/cad/HP_Cover.jpg",
-          alt: "HP Cover",
-          desc: "HP Cover – CAD for a custom high-pressure component cover."
-        },
-        {
-          src: "images/cad/IMG_1892 (1).jpg",
-          alt: "Miscellaneous CAD Part",
-          desc: "Miscellaneous CAD part or prototype (see filename for detail)."
-        },
-        {
-          src: "images/cad/Large_3D_Printer.jpg",
-          alt: "Large 3D Printer",
-          desc: "Large 3D Printer – Designed and built for wood composite printing."
-        },
-        {
-          src: "images/cad/Robot_Arm.jpg",
-          alt: "Robot Arm",
-          desc: "Robot Arm – 3D model for automation or education."
-        },
-        {
-          src: "images/cad/Spinner_Template.jpg",
-          alt: "Spinner Template",
-          desc: "Spinner Template – CAD drawing for a precision spinner lure."
-        }
-      ];
-      let current = 0;
-      function updateCarousel() {
-        const img = document.getElementById("carousel-image");
-        const desc = document.getElementById("carousel-desc");
-        img.src = images[current].src;
-        img.alt = images[current].alt;
-        desc.textContent = images[current].desc;
-      }
-      function prevImage() {
-        current = (current - 1 + images.length) % images.length;
-        updateCarousel();
-      }
-      function nextImage() {
-        current = (current + 1) % images.length;
-        updateCarousel();
-      }
-    </script>
-  </main>
+  </div>
 </body>
 </html>
