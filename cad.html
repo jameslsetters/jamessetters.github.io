@@ -2,231 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CAD Work - Frontier Labs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>Projects | James Setters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root {
-      --orange: #ff6a00;
-      --yellow: #ffb347;
-      --orange-grad: linear-gradient(90deg, #ffb347 0%, #ff6a00 80%, #ff9033 100%);
-      --black: #181818;
-      --grey: #ececec;
-      --dark-grey: #232323;
-      --nav-glass: rgba(24,28,38,0.91);
-      --panel-glass: rgba(38,40,44,0.89);
-    }
-    html, body {
-      height: 100%;
+    body {
+      background: #181818;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #1a1a1f 0%, #282a33 55%, #1d1e22 100%);
-      color: var(--grey);
-      min-height: 100vh;
-      box-sizing: border-box;
     }
     header {
-      background: var(--nav-glass);
-      backdrop-filter: blur(12px);
-      padding: 1.3rem 0 1.1rem 0;
-      box-shadow: 0 6px 32px 0 #161920bb, 0 2px 14px 0 #ff6a0018;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      border-bottom: 1.5px solid #22292f;
-    }
-    .logo {
-      background: var(--orange-grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-      font-size: 2.7rem;
-      font-weight: 900;
-      letter-spacing: 2.8px;
-      text-transform: uppercase;
-      font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
-      margin-bottom: 0.22rem;
-      filter: drop-shadow(0 0 6px #ffb34745);
-    }
-    nav {
-      margin-top: 0.3rem;
-      display: flex;
-      gap: 1.12rem;
-    }
-    nav a {
-      color: #e3e3e3;
-      font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
-      text-decoration: none;
-      font-size: 1.07rem;
-      letter-spacing: 1.2px;
-      padding: 0.36rem 1.15rem;
-      border-radius: 20px;
-      background: none;
-      font-weight: 600;
-      transition: color 0.2s, background 0.2s, box-shadow 0.18s;
-    }
-    nav a:hover:not(.resume-btn) {
-      color: var(--orange);
-      background: #232323;
-      box-shadow: 0 0 10px #ff6a0044;
-    }
-    .resume-btn {
-      color: #232323;
-      font-weight: 900;
-      padding: 0.36rem 1.6rem;
-      border-radius: 28px;
-      background: var(--orange-grad);
-      box-shadow: 0 0 14px 3px var(--orange), 0 0 22px 1px #ffb34788;
-      text-shadow: 0 0 2px #ffb34799;
-      letter-spacing: 1.5px;
-      font-size: 1.12rem;
-      margin-left: 0.24rem;
-      transition: box-shadow 0.22s, background 0.21s, color 0.18s;
-      outline: 1.5px solid #ffb34744;
-      border: none;
-    }
-    .resume-btn:hover, .resume-btn:focus {
-      color: #fff;
-      background: linear-gradient(90deg, #ff6a00 0%, #ffb347 100%);
-      box-shadow: 0 0 32px 9px #ff903355;
-      outline: 2px solid #ffb34799;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 2.5rem auto 2rem auto;
-      background: var(--panel-glass);
-      border-radius: 18px;
-      box-shadow: 0 4px 24px 0 #181818cc, 0 2px 16px 0 #ff6a0035;
-      padding: 2.5rem 1.5rem;
-      border: 1.2px solid #232323;
-      backdrop-filter: blur(2px);
+      background: #222;
+      padding: 2rem 0 1rem 0;
+      text-align: center;
+      box-shadow: 0 2px 10px #0004;
+      border-bottom: 1.5px solid #25262c;
     }
     h1 {
-      color: var(--orange);
-      letter-spacing: 1.2px;
-      text-shadow: 0 0 8px #ffb34744;
+      margin: 0;
+      font-size: 2.4rem;
+      letter-spacing: 2px;
+      color: #fff;
       font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
-      margin-top: 0;
-      font-size: 2.3rem;
-      margin-bottom: 0.7rem;
     }
-    .overview {
-      font-size: 1.13rem;
-      color: var(--grey);
-      margin-bottom: 2.2rem;
-      line-height: 1.5;
+    nav {
+      margin-top: 1rem;
     }
-    .projects-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.2rem;
-      justify-content: center;
-      margin-top: 1.8rem;
+    nav a {
+      color: #888;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+      padding: 0.3em 1.1em;
+      border-radius: 7px;
     }
-    .project-box {
-      flex: 1 1 330px;
-      max-width: 350px;
-      min-width: 230px;
-      background: linear-gradient(120deg, #232323 65%, #ff6a001a 100%);
-      border-left: 4px solid var(--orange);
-      border-radius: 14px;
-      padding: 1.3rem 1.1rem 1.1rem 1.3rem;
-      box-shadow: 0 2px 16px rgba(255,106,0,0.11), 0 1.5px 6px #ffb34722;
-      transition: box-shadow 0.2s, border-color 0.2s, background 0.18s;
-      margin-bottom: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      min-height: 220px;
-      position: relative;
+    nav a:hover, nav a:focus {
+      background: #2c2f38;
+      color: #fff;
     }
-    .project-box:hover {
-      box-shadow: 0 4px 24px 0 rgba(255,106,0,0.23);
-      border-left: 4px solid #ffb347;
-      background: linear-gradient(120deg, #232323 40%, #ffb34722 100%);
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: linear-gradient(120deg, #1a1c22 60%, #23242b 100%);
+      border-radius: 22px;
+      box-shadow: 0 6px 44px #0007, 0 1.5px 8px #262a3135;
+      padding: 2.7rem 2rem 2.2rem 2rem;
+      min-height: 65vh;
     }
-    .project-title {
-      color: var(--orange);
-      font-size: 1.12rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
-      letter-spacing: 1px;
-      text-shadow: 0 0 5px #ffb34733;
+    .section-title {
+      color: #53e1ff;
+      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+      letter-spacing: 0.08em;
+      font-size: 1.19rem;
+      text-transform: uppercase;
+      margin: 2.1rem 0 1.1rem 0;
     }
-    .project-desc {
-      font-size: 1rem;
-      color: #ddd;
-      flex-grow: 1;
+    .resume-item-title {
+      color: #e0e0e0;
+      font-weight: 600;
+      font-size: 1.07rem;
+      margin-bottom: 0.09rem;
+      margin-top: 1rem;
     }
-    @media (max-width: 1000px) {
-      .projects-grid { gap: 1.2rem; }
-      .container { padding: 1.2rem 0.6rem; }
-      .project-box { padding: 1.1rem 0.8rem 0.9rem 1rem; }
-      h1 { font-size: 1.5rem; }
+    .resume-details {
+      color: #bbb;
+      font-size: 0.99rem;
+      margin-bottom: 0.18rem;
     }
     @media (max-width: 700px) {
-      nav { flex-direction: column; gap: 0.5rem; }
-      .logo { font-size: 1.45rem; }
-      .projects-grid { flex-direction: column; gap: 1.2rem; }
-      .project-box { max-width: 100%; min-width: 0; }
+      main { padding: 1rem; }
+    }
+    @media (max-width: 600px) {
+      main { padding: 0.4rem; }
+      h1 { font-size: 1.4rem; }
+      .section-title { font-size: 1.01rem; padding-left: 0.45rem; }
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <div class="logo">Frontier Labs</div>
+    <h1>James Setters</h1>
     <nav>
       <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="projects.html">Projects</a>
       <a href="cad.html">CAD Work</a>
-      <a href="code.html">Code</a>
-      <a href="shop.html">Shop</a>
-      <a href="resume.html" class="resume-btn">Resume</a>
+      <a href="coding.html">Coding</a>
+      <a href="hobbies.html">Hobbies</a>
+      <a href="racing.html">Racing</a>
+      <a href="resume.html">Resume</a>
     </nav>
   </header>
 
-  <div class="container">
-    <h1>CAD Work</h1>
-    <div class="overview">
-      This section highlights a range of CAD projects demonstrating creative mechanical design, practical engineering solutions, and technical proficiency in SolidWorks and Fusion 360. These projects span academic research, client products, and real-world prototyping.
+  <main>
+    <div class="section-title">Projects</div>
+
+    <div class="resume-item-title">Large-Scale 3D-Printed Wooden House Prototype</div>
+    <div class="resume-details">
+      Designed and built a large-format 3D printer to explore the feasibility of printing full-scale wooden structures. Modeled all components in SolidWorks and validated structural elements through iterative testing.
     </div>
-    <div class="projects-grid">
-      <div class="project-box">
-        <div class="project-title">Large-Scale 3D Printed Wooden House Prototype</div>
-        <div class="project-desc">
-          Designed and built a large-format 3D printer to explore the feasibility of printing full-scale wooden structures. Modeled all components in SolidWorks and validated structural elements through physical testing and iteration.
-        </div>
-      </div>
-      <div class="project-box">
-        <div class="project-title">Continuous Casting Machine R&D</div>
-        <div class="project-desc">
-          Developed and optimized a moldless casting system using mechanical design and 3D modeling. Applied SolidWorks to refine moving components and integrated control systems to automate the process.
-        </div>
-      </div>
-      <div class="project-box">
-        <div class="project-title">HP Sustainable Packaging Cover</div>
-        <div class="project-desc">
-          Engineered a sustainable packaging solution for HP in collaboration with a research team. Designed models in Fusion 360 and focused on material reduction, strength-to-weight performance, and production feasibility.
-        </div>
-      </div>
-      <div class="project-box">
-        <div class="project-title">Spinner Template Painting Jig</div>
-        <div class="project-desc">
-          Created a precise jig to streamline the painting process of spinner blades. Modeled and tested multiple iterations to ensure compatibility with various spinner sizes and consistent output.
-        </div>
-      </div>
-      <div class="project-box">
-        <div class="project-title">Fishing Lure Prototypes</div>
-        <div class="project-desc">
-          Designed and modified several fishing lure prototypes using SolidWorks and Fusion 360. Improvements focused on action tuning, manufacturability, and tooling compatibility.
-        </div>
-      </div>
+
+    <div class="resume-item-title">Continuous Casting Machine R&D</div>
+    <div class="resume-details">
+      Developed and optimized a moldless continuous casting process using 3D printing technology. Refined mechanical designs in SolidWorks and implemented Python-based automation to improve system reliability.
     </div>
-  </div>
+
+    <div class="resume-item-title">HP Sustainable Packaging Solution</div>
+    <div class="resume-details">
+      Engineered a sustainable packaging cover for HP in collaboration with a cross-functional team. Designed prototypes in Fusion 360, focused on material efficiency, and assessed strength-to-weight performance.
+    </div>
+
+    <div class="resume-item-title">Spinner Template Painting Jig</div>
+    <div class="resume-details">
+      Created a precision painting jig for spinner blades to ensure consistent alignment and coating. Iterated on SolidWorks models to accommodate multiple blade sizes and streamline assembly.
+    </div>
+
+    <div class="resume-item-title">Fishing Lure Modification & Prototyping</div>
+    <div class="resume-details">
+      Designed, prototyped, and tested custom fishing lures in SolidWorks and Fusion 360. Enhanced action, durability, and manufacturability through design refinements and rapid iteration.
+    </div>
+    
+  </main>
 </body>
 </html>
