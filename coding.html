@@ -210,6 +210,107 @@ app = Flask(__name__)
         </div>
       </div>
     </div>
+    <!-- Place this just before the closing </main> tag -->
+<div class="section-title" style="margin-top:3.4rem;">Try It: Graphing Calculator</div>
+<div id="graph-calc" style="background:#222a33;border-radius:18px;padding:2rem 1.5rem 2.1rem 1.5rem;box-shadow:0 2px 18px #0009;max-width:900px;margin:2.3rem auto 0 auto;">
+  <form id="graph-form" style="margin-bottom:1.2rem;">
+    <div id="equations-list">
+      <div class="equation-row">
+        <label style="color:#8ecaff;">y =</label>
+        <input type="text" name="equation" value="sin(x)" style="width:220px;background:#181c22;color:#fff;border:1.2px solid #384259;border-radius:6px;padding:0.38em 0.65em;font-size:1.09rem;">
+        <button type="button" class="remove-eq" onclick="removeEquation(this)" style="margin-left:7px;display:none;">–</button>
+      </div>
+    </div>
+    <button type="button" onclick="addEquation()" style="margin-top:9px;margin-right:18px;background:#282f3c;color:#53e1ff;font-family:'Orbitron';border-radius:7px;border:none;padding:0.35em 1.2em;font-size:1rem;cursor:pointer;">+ Add</button>
+    <button type="submit" style="background:#53e1ff;color:#191c22;font-family:'Orbitron';border-radius:7px;border:none;padding:0.4em 1.3em;font-size:1rem;cursor:pointer;">Graph</button>
+  </form>
+  <div id="graph" style="height:340px;width:100%;border-radius:12px;"></div>
+  <div style="color:#8ecaff;margin-top:1.2rem;font-size:1rem;">
+    Example: <span style="font-family:monospace;">sin(x), x**2, cos(2*x)+1, exp(-x/5)*sin(x), tan(x), x**3 - 3*x</span>
+  </div>
+</div>
+
+<!-- Add Plotly.js just before the closing </body> tag -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+  // --- Graphing Calculator JS ---
+  function addEquation() {
+    const eqRow = document.createElement("div");
+    eqRow.className = "equation-row";
+    eqRow.innerHTML = `
+      <label style="color:#8ecaff;">y =</label>
+      <input type="text" name="equation" value="" style="width:220px;background:#181c22;color:#fff;border:1.2px solid #384259;border-radius:6px;padding:0.38em 0.65em;font-size:1.09rem;">
+      <button type="button" class="remove-eq" onclick="removeEquation(this)" style="margin-left:7px;">–</button>
+    `;
+    document.getElementById("equations-list").appendChild(eqRow);
+    updateRemoveButtons();
+  }
+  function removeEquation(btn) {
+    btn.parentElement.remove();
+    updateRemoveButtons();
+  }
+  function updateRemoveButtons() {
+    // Show remove button only if more than one equation
+    document.querySelectorAll('.remove-eq').forEach((btn,i,all)=>{
+      btn.style.display = all.length>1 ? "" : "none";
+    });
+  }
+  // Plotting logic
+  function plotEquations(eqns) {
+    const x = [];
+    for(let i=-20;i<=20;i+=0.05)x.push(i);
+    const colors = ["#53e1ff","#fc6060","#80ffb8","#ffe056","#d77cff","#ff9956","#66d9e8","#fa91ff"];
+    let traces = [];
+    for(let j=0;j<eqns.length;j++){
+      const eq = eqns[j];
+      let y = [];
+      let hasVal = false;
+      for(let i=0;i<x.length;i++){
+        let xx = x[i], v = NaN;
+        try{
+          // eslint-disable-next-line no-eval
+          v = eval(eq.replaceAll("^","**").replaceAll("e^","Math.exp").replace(/([a-zA-Z]+)/g, (m) => {
+            // handle sin, cos, tan, exp, log, abs, etc.
+            if(m==="x")return "xx";
+            if(m==="sin")return "Math.sin";
+            if(m==="cos")return "Math.cos";
+            if(m==="tan")return "Math.tan";
+            if(m==="exp")return "Math.exp";
+            if(m==="log")return "Math.log";
+            if(m==="abs")return "Math.abs";
+            if(m==="sqrt")return "Math.sqrt";
+            return m;
+          }));
+        }catch{}
+        y.push(isFinite(v)?v:NaN);
+        if(isFinite(v))hasVal=true;
+      }
+      traces.push({
+        x: x, y: y,
+        mode: "lines",
+        line: { width: 3, color: colors[j%colors.length]},
+        name: "y=" + eq,
+        visible: hasVal
+      });
+    }
+    Plotly.newPlot('graph', traces, {
+      paper_bgcolor: "#222a33",
+      plot_bgcolor: "#181818",
+      margin: {l:40, r:30, t:20, b:40},
+      xaxis: {title:"x", color:"#bde3ff", gridcolor:"#262a3135", zerolinecolor:"#555a", tickfont:{color:"#bde3ff"}},
+      yaxis: {title:"y", color:"#bde3ff", gridcolor:"#262a3135", zerolinecolor:"#555a", tickfont:{color:"#bde3ff"}},
+      legend: {font:{color:"#bde3ff"}, bgcolor:"#191c22"},
+      dragmode: "pan"
+    }, {responsive:true});
+  }
+  document.getElementById("graph-form").onsubmit = function(e){
+    e.preventDefault();
+    const eqs = Array.from(document.querySelectorAll('input[name="equation"]')).map(inp=>inp.value.trim()).filter(Boolean);
+    plotEquations(eqs.length?eqs:["sin(x)"]);
+  }
+  plotEquations(["sin(x)"]); // Initial plot
+</script>
+
   </main>
   <!-- PrismJS syntax highlighting -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
