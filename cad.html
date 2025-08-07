@@ -90,6 +90,11 @@
       min-height: 175px;
       max-height: 240px;
       background: #161a20;
+      cursor: pointer;
+      transition: filter 0.2s;
+    }
+    .project-image img:hover {
+      filter: brightness(1.2) drop-shadow(0 0 14px #53e1ff66);
     }
     .project-content {
       padding: 1.1rem 1.2rem 1rem 1.2rem;
@@ -106,6 +111,28 @@
       font-size: 1.02rem;
       line-height: 1.5;
     }
+    /* Lightbox styles */
+    #lightbox-overlay {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(18,21,29, 0.98); display: none;
+      align-items: center; justify-content: center; z-index: 100;
+      flex-direction: column;
+    }
+    #lightbox-img {
+      max-width: 92vw; max-height: 75vh; border-radius: 18px; box-shadow: 0 8px 50px #222c;
+      background: #111;
+      margin-bottom: 1.5rem;
+    }
+    #lightbox-caption {
+      color: #53e1ff; font-size: 1.21rem; margin-top: 0.4rem; text-align: center;
+      font-family: 'Orbitron', Arial, sans-serif;
+    }
+    #lightbox-close {
+      position: absolute; top: 30px; right: 40px; color: #53e1ff; font-size: 2.6rem;
+      font-weight: 700; cursor: pointer; z-index: 110; user-select: none;
+      transition: color 0.17s;
+    }
+    #lightbox-close:hover { color: #dbeeff; }
     @media (max-width: 900px) {
       .main-box { padding: 1.3rem 0.5rem; }
       .section-title { font-size: 1.12rem; }
@@ -117,6 +144,8 @@
     @media (max-width: 600px) {
       .main-box { padding: 0.5rem 0.1rem; }
       .project-image img { min-height: 95px; max-height: 140px; }
+      #lightbox-img { max-height: 55vh; }
+      #lightbox-close { top: 12px; right: 15px; font-size: 2rem;}
     }
   </style>
 </head>
@@ -206,5 +235,40 @@
       </div>
     </div>
   </main>
+
+  <!-- Lightbox overlay for fullscreen images -->
+  <div id="lightbox-overlay" onclick="closeLightbox(event)">
+    <span id="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+    <div id="lightbox-caption"></div>
+  </div>
+
+  <script>
+    // Lightbox functionality
+    document.querySelectorAll('.project-image img').forEach(function(img){
+      img.addEventListener('click', function() {
+        const overlay = document.getElementById('lightbox-overlay');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        // Use the parent project title for the caption
+        const projectTitle = img.closest('.project-card').querySelector('.project-title').textContent;
+        lightboxCaption.textContent = projectTitle;
+        overlay.style.display = 'flex';
+      });
+    });
+    function closeLightbox(event){
+      // Only close if background or X is clicked
+      if (event.target.id === 'lightbox-overlay' || event.target.id === 'lightbox-close') {
+        document.getElementById('lightbox-overlay').style.display = 'none';
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if(document.getElementById('lightbox-overlay').style.display === 'flex' && (e.key === 'Escape' || e.key === ' ')){
+        document.getElementById('lightbox-overlay').style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
