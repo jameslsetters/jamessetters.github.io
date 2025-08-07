@@ -12,23 +12,27 @@
       margin: 0;
       padding: 0;
     }
+
     header {
       background: #222;
       padding: 2rem 0 1rem 0;
       text-align: center;
-      box-shadow: 0 2px 10px #0004;
       border-bottom: 1.5px solid #25262c;
+      box-shadow: 0 2px 10px #0004;
     }
+
     h1 {
       margin: 0;
       font-size: 2.4rem;
-      letter-spacing: 2px;
       color: #fff;
       font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+      letter-spacing: 2px;
     }
+
     nav {
       margin-top: 1rem;
     }
+
     nav a {
       color: #888;
       margin: 0 1rem;
@@ -38,46 +42,79 @@
       padding: 0.3em 1.1em;
       border-radius: 7px;
     }
-    nav a:hover, nav a:focus {
+
+    nav a:hover {
       background: #2c2f38;
       color: #fff;
     }
+
     main {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 2rem auto;
-      background: linear-gradient(120deg, #1a1c22 60%, #23242b 100%);
-      border-radius: 22px;
-      box-shadow: 0 6px 44px #0007, 0 1.5px 8px #262a3135;
-      padding: 2.7rem 2rem 2.2rem 2rem;
-      min-height: 65vh;
+      padding: 1rem;
     }
+
     .section-title {
       color: #53e1ff;
       font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
-      letter-spacing: 0.08em;
-      font-size: 1.19rem;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      text-align: center;
       text-transform: uppercase;
-      margin: 2.1rem 0 1.1rem 0;
     }
-    .resume-item-title {
-      color: #e0e0e0;
-      font-weight: 600;
-      font-size: 1.07rem;
-      margin-bottom: 0.09rem;
-      margin-top: 1rem;
+
+    .project-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.5rem;
     }
-    .resume-details {
-      color: #bbb;
-      font-size: 0.99rem;
-      margin-bottom: 0.18rem;
+
+    .project-card {
+      background: linear-gradient(135deg, #1a1c22 60%, #23242b 100%);
+      border-radius: 15px;
+      box-shadow: 0 0 20px #0009;
+      flex: 1 1 calc(50% - 1rem);
+      max-width: calc(50% - 1rem);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      border-left: 5px solid #00aaff;
     }
-    @media (max-width: 700px) {
-      main { padding: 1rem; }
+
+    .project-image img {
+      width: 100%;
+      display: block;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
     }
-    @media (max-width: 600px) {
-      main { padding: 0.4rem; }
-      h1 { font-size: 1.4rem; }
-      .section-title { font-size: 1.01rem; padding-left: 0.45rem; }
+
+    .project-content {
+      padding: 1rem;
+      padding-right: 1.5rem;
+    }
+
+    .project-title {
+      color: #00aaff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    }
+
+    .project-description {
+      color: #ccc;
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 800px) {
+      .project-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
@@ -96,33 +133,70 @@
   </header>
 
   <main>
-    <div class="section-title">Projects</div>
+    <div class="section-title">Featured Projects</div>
+    <div class="project-grid">
+      
+      <div class="project-card">
+        <div class="project-image">
+          <img src="images/3d-printer.png" alt="3D Printed House">
+        </div>
+        <div class="project-content">
+          <div class="project-title">Large-Scale 3D Printed Wooden House</div>
+          <div class="project-description">
+            Designed, built, and tested a large-format 3D printer for wood composite structures. Demonstrated feasibility of additive construction using bio-based materials.
+          </div>
+        </div>
+      </div>
 
-    <div class="resume-item-title">Large-Scale 3D-Printed Wooden House Prototype</div>
-    <div class="resume-details">
-      Designed and built a large-format 3D printer to explore the feasibility of printing full-scale wooden structures. Modeled all components in SolidWorks and validated structural elements through iterative testing.
-    </div>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="images/continuous-casting.png" alt="Continuous Casting">
+        </div>
+        <div class="project-content">
+          <div class="project-title">Continuous Casting Machine R&D</div>
+          <div class="project-description">
+            Developed a moldless continuous-casting system using 3D printing. Improved performance through iterative design, automation, and SolidWorks optimization.
+          </div>
+        </div>
+      </div>
 
-    <div class="resume-item-title">Continuous Casting Machine R&D</div>
-    <div class="resume-details">
-      Developed and optimized a moldless continuous casting process using 3D printing technology. Refined mechanical designs in SolidWorks and implemented Python-based automation to improve system reliability.
-    </div>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="images/spinner-jig.png" alt="Spinner Jig">
+        </div>
+        <div class="project-content">
+          <div class="project-title">Fishing Lure Painting Jig</div>
+          <div class="project-description">
+            Created a rotating fixture for evenly painting spinner lures. Increased production speed and consistency for hobby and small-batch manufacturing use.
+          </div>
+        </div>
+      </div>
 
-    <div class="resume-item-title">HP Sustainable Packaging Solution</div>
-    <div class="resume-details">
-      Engineered a sustainable packaging cover for HP in collaboration with a cross-functional team. Designed prototypes in Fusion 360, focused on material efficiency, and assessed strength-to-weight performance.
-    </div>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="images/bakery-scale.png" alt="Bakery Dispenser">
+        </div>
+        <div class="project-content">
+          <div class="project-title">Automated Flour Dispensing System</div>
+          <div class="project-description">
+            Prototyped a bakery automation tool to dispense accurate flour weights at the press of a button. Improved speed and reduced manual error in commercial kitchens.
+          </div>
+        </div>
+      </div>
 
-    <div class="resume-item-title">Spinner Template Painting Jig</div>
-    <div class="resume-details">
-      Created a precision painting jig for spinner blades to ensure consistent alignment and coating. Iterated on SolidWorks models to accommodate multiple blade sizes and streamline assembly.
-    </div>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="images/terrain-model.png" alt="Terrain Modeling">
+        </div>
+        <div class="project-content">
+          <div class="project-title">3D Terrain Modeling</div>
+          <div class="project-description">
+            Used Agtek 4D to generate 3D models of construction sites from elevation data. Enabled better planning, cut/fill calculations, and client visualization.
+          </div>
+        </div>
+      </div>
 
-    <div class="resume-item-title">Fishing Lure Modification & Prototyping</div>
-    <div class="resume-details">
-      Designed, prototyped, and tested custom fishing lures in SolidWorks and Fusion 360. Enhanced action, durability, and manufacturability through design refinements and rapid iteration.
     </div>
-    
   </main>
 </body>
 </html>
