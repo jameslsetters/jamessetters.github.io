@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Projects | James Setters</title>
+  <title>CAD Projects | James Setters</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
   <style>
@@ -43,17 +43,25 @@
       background: #2c2f38;
       color: #fff;
     }
+
     main {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 1rem;
+      max-width: 1100px;
+      margin: 3rem auto 2rem auto;
+      padding: 0 1rem;
+    }
+    .main-box {
+      background: linear-gradient(120deg, #23242b 65%, #1a1c22 100%);
+      border-radius: 24px;
+      box-shadow: 0 6px 44px #0007, 0 1.5px 8px #262a3135;
+      padding: 2.5rem 2rem 2rem 2rem;
+      min-height: 65vh;
     }
     .section-title {
       color: #53e1ff;
       font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
       font-size: 1.3rem;
       letter-spacing: 0.1em;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
       text-align: center;
       text-transform: uppercase;
     }
@@ -61,47 +69,59 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 1.5rem;
+      gap: 2.2rem;
     }
     .project-card {
       background: linear-gradient(135deg, #1a1c22 60%, #23242b 100%);
       border-radius: 15px;
-      box-shadow: 0 0 20px #0009;
-      flex: 1 1 calc(50% - 1rem);
-      max-width: calc(50% - 1rem);
+      box-shadow: 0 0 16px #0008;
+      flex: 1 1 calc(50% - 1.2rem);
+      max-width: calc(50% - 1.2rem);
       display: flex;
       flex-direction: column;
       overflow: hidden;
       position: relative;
       border-left: 5px solid #00aaff;
+      margin-bottom: 0.5rem;
+      min-width: 270px;
     }
     .project-image img {
       width: 100%;
       display: block;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
+      object-fit: cover;
+      min-height: 175px;
+      max-height: 240px;
+      background: #161a20;
     }
     .project-content {
-      padding: 1rem;
-      padding-right: 1.5rem;
+      padding: 1.1rem 1.2rem 1rem 1.2rem;
     }
     .project-title {
       color: #00aaff;
-      font-size: 1.1rem;
+      font-size: 1.13rem;
       font-weight: bold;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.55rem;
       font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
     }
     .project-description {
       color: #ccc;
-      font-size: 0.98rem;
+      font-size: 1.02rem;
       line-height: 1.5;
     }
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
+      .main-box { padding: 1.3rem 0.5rem; }
+      .project-grid { gap: 1.2rem; }
       .project-card {
         flex: 1 1 100%;
         max-width: 100%;
       }
+    }
+    @media (max-width: 600px) {
+      .main-box { padding: 0.5rem 0.1rem; }
+      .section-title { font-size: 1.1rem; }
+      .project-image img { min-height: 95px; max-height: 140px; }
     }
   </style>
 </head>
@@ -119,71 +139,73 @@
   </header>
 
   <main>
-    <div class="section-title">Featured CAD Projects</div>
-    <div class="project-grid">
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/cad/Continuous_Casting_Machine.jpg" alt="Continuous Casting Machine">
-        </div>
-        <div class="project-content">
-          <div class="project-title">Continuous Casting Machine</div>
-          <div class="project-description">
-            Developed a moldless continuous-casting system using 3D printing. Improved consistency and performance through iterative design.
+    <div class="main-box">
+      <div class="section-title">Featured CAD Projects</div>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/cad/Continuous_Casting_Machine.jpg" alt="Continuous Casting Machine">
+          </div>
+          <div class="project-content">
+            <div class="project-title">Continuous Casting Machine</div>
+            <div class="project-description">
+              Developed a moldless continuous-casting system using 3D printing. Improved consistency and performance through iterative design.
+            </div>
           </div>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/cad/Fishing_lures.jpg" alt="Fishing Lures">
-        </div>
-        <div class="project-content">
-          <div class="project-title">Fishing Lures (Group)</div>
-          <div class="project-description">
-            Designed and prototyped a range of 3D-modeled fishing lures for testing various shapes and weights.
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/cad/Fishing_lures.jpg" alt="Fishing Lures">
+          </div>
+          <div class="project-content">
+            <div class="project-title">Fishing Lures (Group)</div>
+            <div class="project-description">
+              Designed and prototyped a range of 3D-modeled fishing lures for testing various shapes and weights.
+            </div>
           </div>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/cad/Large_3D_Printer.jpg" alt="Large 3D Printer">
-        </div>
-        <div class="project-content">
-          <div class="project-title">Large 3D Printer</div>
-          <div class="project-description">
-            Designed and built a large-format 3D printer for wood composite structures and additive construction R&D.
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/cad/Large_3D_Printer.jpg" alt="Large 3D Printer">
+          </div>
+          <div class="project-content">
+            <div class="project-title">Large 3D Printer</div>
+            <div class="project-description">
+              Designed and built a large-format 3D printer for wood composite structures and additive construction R&D.
+            </div>
           </div>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/cad/Fishing_Lure.jpg" alt="Fishing Lure">
-        </div>
-        <div class="project-content">
-          <div class="project-title">Fishing Lure (Single)</div>
-          <div class="project-description">
-            CAD model of a custom fishing lure, created for rapid prototyping and field testing.
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/cad/Fishing_Lure.jpg" alt="Fishing Lure">
+          </div>
+          <div class="project-content">
+            <div class="project-title">Fishing Lure (Single)</div>
+            <div class="project-description">
+              CAD model of a custom fishing lure, created for rapid prototyping and field testing.
+            </div>
           </div>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/cad/HP_Cover.jpg" alt="HP Cover">
-        </div>
-        <div class="project-content">
-          <div class="project-title">High Pressure Cover</div>
-          <div class="project-description">
-            Designed a high-pressure component cover for experimental and safety-critical applications.
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/cad/HP_Cover.jpg" alt="HP Cover">
+          </div>
+          <div class="project-content">
+            <div class="project-title">High Pressure Cover</div>
+            <div class="project-description">
+              Designed a high-pressure component cover for experimental and safety-critical applications.
+            </div>
           </div>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="images/cad/Spinner_Template.jpg" alt="Spinner Template">
-        </div>
-        <div class="project-content">
-          <div class="project-title">Spinner Template</div>
-          <div class="project-description">
-            CAD drawing and template for precision spinner lures, optimized for repeatability and finish.
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/cad/Spinner_Template.jpg" alt="Spinner Template">
+          </div>
+          <div class="project-content">
+            <div class="project-title">Spinner Template</div>
+            <div class="project-description">
+              CAD drawing and template for precision spinner lures, optimized for repeatability and finish.
+            </div>
           </div>
         </div>
       </div>
