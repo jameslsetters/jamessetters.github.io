@@ -5,6 +5,7 @@
   <title>James Setters Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.272.0/font/lucide.css" />
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -25,7 +26,7 @@
       background: linear-gradient(-45deg, #f2f2f7, #d7e2e8, #fff, #ddeeff);
       color: #222;
     }
-    header { background: #222; padding: 2rem 0 1rem 0; text-align: center; box-shadow: 0 2px 10px #0004; border-bottom: 1.5px solid #25262c; }
+    header { background: #222; padding: 2rem 0 1rem 0; text-align: center; box-shadow: 0 2px 10px #0004; border-bottom: 1.5px solid #25262c; position:relative;}
     body.light-mode header { background: #e3e7eb; color: #333; border-bottom: 1.5px solid #b6c6dd; }
     h1 { margin: 0; font-size: 2.4rem; letter-spacing: 2px; color: #fff; font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif; }
     body.light-mode h1 { color: #333; }
@@ -42,27 +43,85 @@
     body.light-mode .theme-switcher {
       background: #cfe2f3; color: #15182a;
     }
-    main { max-width: 900px; margin: 2rem auto; background: linear-gradient(120deg, #1a1c22 60%, #23242b 100%); border-radius: 22px; box-shadow: 0 6px 44px #0007, 0 1.5px 8px #262a3135; padding: 2.7rem 2rem 2.2rem 2rem; min-height: 65vh; position:relative;}
+    main { max-width: 1050px; margin: 2.5rem auto 2rem auto; background: linear-gradient(120deg, #1a1c22 60%, #23242b 100%); border-radius: 22px; box-shadow: 0 6px 44px #0007, 0 1.5px 8px #262a3135; padding: 3.1rem 2.5rem 2.2rem 2.5rem; min-height: 70vh; position:relative;}
     body.light-mode main { background: #f8fafd; }
-    .section-title { color: #53e1ff; font-family: 'Orbitron', Arial, sans-serif; letter-spacing: 0.08em; font-size: 1.19rem; text-transform: uppercase; margin: 2.1rem 0 1.1rem 0; }
-    .gallery { display: flex; flex-wrap: wrap; gap: 18px; margin: 2rem 0; }
-    .gallery img { width: 180px; height: 120px; object-fit: cover; border-radius: 11px; box-shadow: 0 3px 10px #0007; cursor: pointer; transition: transform 0.15s; }
-    .gallery img:hover { transform: scale(1.07); }
+    .intro-type {
+      font-size: 1.35rem; color: #53e1ff; font-family: 'Orbitron', Arial, sans-serif;
+      letter-spacing: 0.04em; margin-bottom: 0.9rem; min-height: 2.4em;
+    }
+    .section-title {
+      color: #53e1ff; font-family: 'Orbitron', Arial, sans-serif; letter-spacing: 0.08em; font-size: 1.19rem; text-transform: uppercase; margin: 2.2rem 0 1.1rem 0;
+    }
+    .quick-links {
+      display: flex; flex-wrap: wrap; gap: 1.6rem; justify-content: center; margin-bottom: 2.7rem;
+    }
+    .quick-link-card {
+      flex: 1 1 200px;
+      min-width: 180px; max-width: 210px;
+      background: #1b1d24;
+      border-radius: 18px;
+      box-shadow: 0 3px 15px #0009;
+      padding: 1.2rem 1.1rem 1.1rem 1.1rem;
+      text-align: center;
+      color: #89d5fa;
+      text-decoration: none;
+      font-size: 1.05rem;
+      border: 1.6px solid #232f38;
+      position: relative;
+      transition: background 0.17s, color 0.17s, transform 0.13s, box-shadow 0.13s;
+      font-family: 'Orbitron', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .quick-link-card:hover, .quick-link-card:focus {
+      background: #232f38;
+      color: #53e1ff;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 24px #53e1ff33;
+    }
+    .quick-link-card .lucide {
+      font-size: 2.3rem; margin-bottom: 0.65rem; color: #53e1ff; transition: color 0.2s;
+    }
     .resume-btn {
       display: inline-block; background: #53e1ff; color: #191c22; font-family: 'Orbitron', Arial, sans-serif;
-      font-weight: 700; padding: 0.7em 1.5em; border-radius: 8px; margin: 1.2rem 0; text-decoration: none;
+      font-weight: 700; padding: 0.7em 1.5em; border-radius: 8px; margin: 1.4rem 0 2.1rem 0; text-decoration: none;
       transition: background 0.2s, color 0.2s;
+      font-size: 1.08rem;
     }
     .resume-btn:hover { background: #222a33; color: #53e1ff; }
-    /* Lightbox styles */
-    #lightbox-overlay {
-      position: fixed; top:0; left:0; width:100vw; height:100vh;
-      background:rgba(24,24,24,0.98); display:none; align-items:center; justify-content:center; z-index:100;
-      flex-direction: column;
+    .carousel-container {
+      display: flex; flex-direction: column; align-items: center; margin: 2.2rem 0;
     }
-    #lightbox-img { max-width:90vw; max-height:78vh; border-radius:16px; box-shadow:0 4px 40px #222c; }
-    #lightbox-caption { color: #53e1ff; font-size:1.15rem; margin:1rem 0 0 0; text-align:center;}
-    #lightbox-close { position:absolute; top:28px; right:38px; color:#53e1ff; font-size:2.5rem; font-weight:700; cursor:pointer; }
+    .carousel {
+      position: relative; width: 370px; height: 260px; display: flex; align-items: center; justify-content: center;
+      background: #222a33; border-radius: 20px; box-shadow: 0 3px 18px #000a; overflow: hidden;
+    }
+    .carousel img {
+      width: 100%; height: 210px; object-fit: contain; border-radius: 12px; box-shadow: 0 2px 8px #0004; background: #181818;
+      display: block;
+    }
+    .carousel-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; background: #232a37cc;
+      color: #53e1ff; border: none; border-radius: 50%; font-size: 2.2rem;
+      display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;
+      transition: background 0.18s, color 0.18s, transform 0.11s; user-select: none; outline: none;
+    }
+    .carousel-arrow:hover { background: #53e1ff; color: #23242b; transform: scale(1.13); }
+    .carousel-arrow.left { left: 13px; }
+    .carousel-arrow.right { right: 13px; }
+    .carousel-description {
+      margin-top: 1rem; color: #8ecaff; background: #222a33;
+      border-radius: 11px; padding: 0.7rem 1.2rem; font-size: 1.09rem;
+      min-height: 2.2em; text-align: center; box-shadow: 0 1.5px 9px #0005;
+    }
+    .contact-link {
+      display: block; margin-top: 2.3rem; text-align: center;
+      color: #53e1ff; font-size: 1.15rem; font-family: 'Orbitron', Arial, sans-serif;
+      text-decoration: none;
+    }
+    .contact-link:hover { text-decoration: underline; color: #aeeaff; }
     /* Scroll-to-top button */
     #scrollToTopBtn {
       display: none; position: fixed; bottom: 35px; right: 30px; z-index: 50;
@@ -71,9 +130,14 @@
       cursor: pointer; transition: background 0.2s, color 0.2s, transform 0.12s;
     }
     #scrollToTopBtn:hover { background: #1b2331; color: #53e1ff; transform: scale(1.11);}
-    @media (max-width:700px){
-      .gallery{justify-content:center;}
-      main{padding:1.2rem;}
+    @media (max-width:1100px){
+      main { padding: 1.2rem;}
+    }
+    @media (max-width: 800px) {
+      .quick-links { flex-direction: column; gap: 1rem;}
+      .carousel { width:98vw; min-width:180px; height:44vw; }
+      .carousel img { height:110px;}
+      .carousel-arrow { width:36px; height:36px; font-size:1.5rem;}
     }
   </style>
 </head>
@@ -91,32 +155,59 @@
     </nav>
   </header>
   <main>
-    <div class="section-title">Welcome</div>
-    <p>Hi, I'm James Setters. Explore my projects, adventures, and get in touch!</p>
-
-    <!-- Download Resume Button -->
-    <a href="resume.pdf" download class="resume-btn">Download Resume (PDF)</a>
-
-    <!-- Gallery with Lightbox -->
-    <div class="section-title">Featured Gallery</div>
-    <div class="gallery">
-      <img src="images/cad/Spinner_Template.jpg" alt="Spinner Template" data-caption="Spinner Template – CAD drawing for a precision spinner lure">
-      <img src="images/hobbies/Rock_Climbing.jpg" alt="Rock Climbing" data-caption="Rock Climbing – Scaling outdoor rock faces">
-      <img src="images/racing/Race_win_1.jpg" alt="Race Win 1" data-caption="Race Win #1 – Early racing success">
+    <div class="intro-type" id="typewriter"></div>
+    <div class="quick-links">
+      <a href="cad.html" class="quick-link-card"><i class="lucide lucide-cube"></i>CAD Work</a>
+      <a href="coding.html" class="quick-link-card"><i class="lucide lucide-terminal-square"></i>Coding</a>
+      <a href="hobbies.html" class="quick-link-card"><i class="lucide lucide-bolt"></i>Hobbies</a>
+      <a href="racing.html" class="quick-link-card"><i class="lucide lucide-flag"></i>Racing</a>
+      <a href="resume.html" class="quick-link-card"><i class="lucide lucide-file-text"></i>Resume</a>
     </div>
+    <a href="resume.pdf" download class="resume-btn">Download Resume (PDF)</a>
+    <div class="section-title">Featured Projects</div>
+    <div class="carousel-container">
+      <div class="carousel">
+        <button class="carousel-arrow left" onclick="prevImage()" aria-label="Previous">&#8592;</button>
+        <img id="carousel-image" src="images/cad/Continuous_Casting_Machine.jpg" alt="Continuous Casting Machine">
+        <button class="carousel-arrow right" onclick="nextImage()" aria-label="Next">&#8594;</button>
+      </div>
+      <div class="carousel-description" id="carousel-desc">
+        Continuous Casting Machine — R&D project for nuclear fuel rod prototyping and automation.
+      </div>
+    </div>
+    <a class="contact-link" href="mailto:jameslsetters@gmail.com?subject=Inquiry from Portfolio">Contact: jameslsetters@gmail.com</a>
   </main>
-
-  <!-- Lightbox HTML -->
-  <div id="lightbox-overlay" onclick="closeLightbox(event)">
-    <span id="lightbox-close" onclick="closeLightbox(event)">&times;</span>
-    <img id="lightbox-img" src="" alt="">
-    <div id="lightbox-caption"></div>
-  </div>
 
   <!-- Scroll to Top Button -->
   <button onclick="scrollToTop()" id="scrollToTopBtn" title="Back to top">&#8679;</button>
 
   <script>
+    // Typewriter animated intro
+    const typeStrings = [
+      "Mechanical Engineer. Problem Solver.",
+      "CAD, Prototyping, and Automation Specialist.",
+      "Rapid Iteration. Real-World Impact.",
+      "Scroll down to explore my work."
+    ];
+    let typeI = 0, charI = 0, del = false;
+    const typeDiv = document.getElementById('typewriter');
+    function typeEffect() {
+      if (!del && charI <= typeStrings[typeI].length) {
+        typeDiv.textContent = typeStrings[typeI].substring(0, charI++);
+        setTimeout(typeEffect, 50 + Math.random() * 30);
+      } else if (!del) {
+        setTimeout(() => { del = true; typeEffect(); }, 1200);
+      } else if (del && charI > 0) {
+        typeDiv.textContent = typeStrings[typeI].substring(0, --charI);
+        setTimeout(typeEffect, 23);
+      } else {
+        del = false;
+        typeI = (typeI + 1) % typeStrings.length;
+        setTimeout(typeEffect, 400);
+      }
+    }
+    typeEffect();
+
     // Theme Switcher
     function toggleTheme() {
       document.body.classList.toggle('light-mode');
@@ -135,26 +226,50 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Lightbox Image Viewer
-    const lightbox = document.getElementById('lightbox-overlay');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    document.querySelectorAll('.gallery img').forEach(img => {
-      img.onclick = () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxCaption.textContent = img.getAttribute('data-caption') || img.alt;
-      };
-    });
-    function closeLightbox(event){
-      if(event && (event.target === lightbox || event.target === document.getElementById('lightbox-close'))){
-        lightbox.style.display = 'none';
+    // Carousel/Project Slider
+    const images = [
+      {
+        src: "images/cad/Continuous_Casting_Machine.jpg",
+        alt: "Continuous Casting Machine",
+        desc: "Continuous Casting Machine — R&D project for nuclear fuel rod prototyping and automation."
+      },
+      {
+        src: "images/cad/Fishing_lures.jpg",
+        alt: "Fishing Lures",
+        desc: "Fishing Lures — Modular lure design with unique, user-friendly features."
+      },
+      {
+        src: "images/cad/Large_3D_Printer.jpg",
+        alt: "Large 3D Printer",
+        desc: "Large 3D Printer — Custom engineered printer for sustainable wood composite research."
+      },
+      {
+        src: "images/racing/Race_win_1.jpg",
+        alt: "Race Win 1",
+        desc: "Race Win — Sprint car championship victory moment."
+      },
+      {
+        src: "images/hobbies/Rock_Climbing.jpg",
+        alt: "Rock Climbing",
+        desc: "Rock Climbing — Outdoor adventure, pushing personal boundaries."
       }
+    ];
+    let current = 0;
+    function updateCarousel() {
+      const img = document.getElementById("carousel-image");
+      const desc = document.getElementById("carousel-desc");
+      img.src = images[current].src;
+      img.alt = images[current].alt;
+      desc.textContent = images[current].desc;
     }
-    document.addEventListener('keydown', function(e) {
-      if(lightbox.style.display === 'flex' && (e.key === 'Escape' || e.key === ' ')){ lightbox.style.display = 'none'; }
-    });
+    function prevImage() {
+      current = (current - 1 + images.length) % images.length;
+      updateCarousel();
+    }
+    function nextImage() {
+      current = (current + 1) % images.length;
+      updateCarousel();
+    }
   </script>
 </body>
 </html>
