@@ -68,25 +68,10 @@
       flex-wrap: wrap;
       gap: 2.2rem;
     }
-    .code-display {
-      background: #191c22;
-      border-radius: 14px;
-      flex: 1 1 54%;
-      max-width: 54%;
-      box-shadow: 0 0 14px #0009;
-      overflow: auto;
-      min-width: 310px;
-      padding: 0.9rem 0.7rem 0.9rem 1rem;
-      margin-bottom: 1.2rem;
-      font-size: 0.97rem;
-      border-left: 5px solid #53e1ff;
-      max-height: 730px;
-    }
-    pre { margin: 0; }
     .code-details {
-      flex: 1 1 38%;
-      max-width: 38%;
-      min-width: 270px;
+      flex: 1 1 42%;
+      max-width: 42%;
+      min-width: 260px;
       background: #21232b;
       border-radius: 13px;
       padding: 1.3rem 1.3rem 1.1rem 1.3rem;
@@ -95,23 +80,42 @@
       display: flex;
       flex-direction: column;
       gap: 1.3rem;
+      font-size: 1.06rem;
+      justify-content: center;
     }
     .code-details h3 {
       color: #53e1ff;
-      font-size: 1.14rem;
-      margin: 0 0 0.4em 0;
+      font-size: 1.17rem;
+      margin: 0 0 0.45em 0;
       font-family: 'Orbitron', Arial, sans-serif;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
     }
-    @media (max-width: 950px) {
-      .code-two-col {
-        flex-direction: column;
-      }
-      .code-display, .code-details {
-        max-width: 100%;
-        min-width: 0;
-      }
+    .code-display {
+      background: #191c22;
+      border-radius: 14px;
+      flex: 1 1 54%;
+      max-width: 54%;
+      min-width: 320px;
+      box-shadow: 0 0 14px #0009;
+      overflow: auto;
+      padding: 0.9rem 0.7rem 0.9rem 1rem;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      border-left: 5px solid #53e1ff;
+      max-height: 780px;
+      display: flex;
+      align-items: flex-start;
+    }
+    pre { margin: 0; font-size: 1rem; }
+    code { font-size: 1rem; }
+    @media (max-width: 1100px) {
       .main-box { padding: 1.1rem 0.4rem; }
+      .code-two-col { flex-direction: column; }
+      .code-details, .code-display { max-width: 100%; min-width: 0; }
+    }
+    @media (max-width: 600px) {
+      .code-details, .code-display { padding: 0.6rem 0.4rem; font-size: 0.98rem;}
+      .main-box { padding: 0.5rem 0.1rem; }
     }
   </style>
 </head>
@@ -131,13 +135,47 @@
     <div class="main-box">
       <div class="section-title">Continuous Casting Control – Web Edition</div>
       <div class="code-two-col">
-        <!-- Code Display -->
+        <!-- Details Left -->
+        <div class="code-details">
+          <div>
+            <h3>Project:</h3>
+            <strong>CC Control Code (Web Edition)</strong>
+          </div>
+          <div>
+            <h3>Description:</h3>
+            <ul>
+              <li>Python Flask web app for controlling and logging a continuous casting process via serial (G-code).</li>
+              <li>Features real-time temperature plotting and a state-machine for process automation.</li>
+              <li>Auto-installs required Python packages at runtime for easy setup.</li>
+              <li>Visualizes results with interactive 3D Plotly charts and Chart.js graphs.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>How to Use:</h3>
+            <ol>
+              <li>Connect your hardware (set correct COM port in the code).</li>
+              <li>Run <code>python CC\ Control\ Code\ (Web\ Edition).py</code>.</li>
+              <li>Use your browser to control, monitor, and export results.</li>
+              <li>See the repo for detailed setup instructions and full source code.</li>
+            </ol>
+          </div>
+          <div>
+            <h3>Key Features:</h3>
+            <ul>
+              <li>Live temperature and process graphing</li>
+              <li>Interactive plotting of experiment results</li>
+              <li>Automated G-code control and manual override</li>
+              <li>Web-based data entry and result export</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Code Right -->
         <div class="code-display">
           <pre><code class="language-python">#!/usr/bin/env python3
-\"\"\"
+"""
 CC Control Code (Web Edition) – Fixed version
 Ensures required packages are installed at runtime and removes duplicate or incorrect imports.
-\"\"\"
+"""
 import sys
 import subprocess
 
@@ -167,40 +205,6 @@ app = Flask(__name__)
 
 # ... (Code continues! See repo for full version)
           </code></pre>
-        </div>
-        <!-- Code Project Details -->
-        <div class="code-details">
-          <div>
-            <h3>Project:</h3>
-            CC Control Code (Web Edition)
-          </div>
-          <div>
-            <h3>Description:</h3>
-            <ul>
-              <li>Python Flask web app for controlling a continuous casting system via serial (G-code).</li>
-              <li>Includes real-time temperature plotting and experiment state-machine logic.</li>
-              <li>Auto-installs required Python packages at runtime.</li>
-              <li>Interactive 3D plot with Plotly, live charting with Chart.js, and CSV result export.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Usage:</h3>
-            <ol>
-              <li>Connect the hardware (set correct COM port).</li>
-              <li>Run <code>python CC\ Control\ Code\ (Web\ Edition).py</code></li>
-              <li>Follow prompts and control/monitor from your browser.</li>
-              <li>See repo for detailed setup instructions and full code.</li>
-            </ol>
-          </div>
-          <div>
-            <h3>Features:</h3>
-            <ul>
-              <li>Live temperature and process graphing</li>
-              <li>Interactive plotting of experimental results</li>
-              <li>Automated G-code control and override</li>
-              <li>Web-based data entry and export</li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
