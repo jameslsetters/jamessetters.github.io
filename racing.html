@@ -12,7 +12,7 @@
     nav { margin-top: 1rem; }
     nav a { color: #888; margin: 0 1rem; text-decoration: none; font-size: 1.1rem; transition: color 0.2s; padding: 0.3em 1.1em; border-radius: 7px; }
     nav a:hover, nav a:focus { background: #2c2f38; color: #fff; }
-    main { max-width: 900px; margin: 2rem auto; background: linear-gradient(120deg, #1a1c22 60%, #23242b 100%); border-radius: 22px; box-shadow: 0 6px 44px #0007, 0 1.5px 8px #262a3135; padding: 2.7rem 2rem 2.2rem 2rem; min-height: 65vh; }
+    main { max-width: 1050px; margin: 2rem auto; background: linear-gradient(120deg, #1a1c22 60%, #23242b 100%); border-radius: 22px; box-shadow: 0 6px 44px #0007, 0 1.5px 8px #262a3135; padding: 2.7rem 2rem 2.2rem 2rem; min-height: 65vh; }
     .section-title { color: #53e1ff; font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif; letter-spacing: 0.08em; font-size: 1.19rem; text-transform: uppercase; margin: 2.1rem 0 1.1rem 0; }
     .content { color: #ccc; font-size: 1.08rem; line-height: 1.7; margin-bottom: 2.2rem; }
     .carousel-container {
@@ -24,8 +24,8 @@
     }
     .carousel {
       position: relative;
-      width: 330px;
-      height: 270px;
+      width: 600px;
+      height: 420px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -36,24 +36,29 @@
     }
     .carousel img {
       width: 100%;
-      height: 220px;
+      height: 400px;
       object-fit: contain;
       border-radius: 12px;
       box-shadow: 0 2px 8px #0004;
       display: block;
       background: #181818;
+      transition: box-shadow 0.18s, transform 0.18s;
+    }
+    .carousel img:hover {
+      box-shadow: 0 8px 28px #53e1ff44;
+      transform: scale(1.02);
     }
     .carousel-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 46px;
-      height: 46px;
+      width: 54px;
+      height: 54px;
       background: #232a37cc;
       color: #53e1ff;
       border: none;
       border-radius: 50%;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -64,8 +69,8 @@
       outline: none;
     }
     .carousel-arrow:hover { background: #53e1ff; color: #23242b; transform: scale(1.13); }
-    .carousel-arrow.left { left: 14px; }
-    .carousel-arrow.right { right: 14px; }
+    .carousel-arrow.left { left: 22px; }
+    .carousel-arrow.right { right: 22px; }
     .carousel-description {
       margin-top: 1rem;
       color: #8ecaff;
@@ -76,11 +81,17 @@
       min-height: 2.2em;
       text-align: center;
       box-shadow: 0 1.5px 9px #0005;
+      max-width: 90vw;
     }
-    @media (max-width: 500px) {
-      .carousel { width: 96vw; height: 44vw; min-width: 180px; min-height: 130px; }
-      .carousel img { height: 110px; }
-      .carousel-arrow { width: 36px; height: 36px; font-size: 1.5rem; }
+    @media (max-width: 800px) {
+      .carousel { width: 95vw; height: 62vw; min-width: 180px; min-height: 130px; }
+      .carousel img { height: 58vw; max-height: 400px;}
+      .carousel-arrow { width: 36px; height: 36px; font-size: 1.8rem; left: 8px; right: 8px;}
+    }
+    @media (max-width: 480px) {
+      .carousel { width: 99vw; height: 48vw; min-width: 120px; min-height: 80px;}
+      .carousel img { height: 33vw; }
+      .carousel-description { font-size: 1rem;}
     }
   </style>
 </head>
@@ -148,4 +159,3 @@
   </main>
 </body>
 </html>
-
